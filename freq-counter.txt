@@ -1,0 +1,97 @@
+Anytime there is a comparison of data and counting iteration is a frequency counter pattern.
+
+Examples:
+Write a function same which accepts two arrays. The function should return true if every value in the array has it's corresponding value squared in the second array. The frequency of values must be the same.
+
+O(n^2) example:
+
+function same(arr1, arr2){
+    if(arr1.length !== arr2.length){
+        return false;
+    }
+    for(let i = 0; i < arr1.length; i++){
+        let correctIndex = arr2.indexOf(arr1[i] ** 2)
+        if(correctIndex === -1) {
+            return false;
+        }
+        console.log(arr2);
+        arr2.splice(correctIndex,1)
+    }
+    return true;
+}
+
+same([1,2,3,2], [9,1,4,4])
+
+
+O(n) example:
+
+function same(arr1, arr2){
+    if(arr1.length !== arr2.length){
+        return false;
+    }
+    let frequencyCounter1 = {} //create empty object to add key value pairs
+    let frequencyCounter2 = {}
+    for(let val of arr1){
+        frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1 //psuedo would be make val the key and take the current value or 0 and add 1. 
+        // reason why it has to be 0 is because that will initialize the value of the obj
+        // loop through the array to add to the empty object
+        // if arr1 = [1,2,3] val = 1, 2, 3
+        // adding new properties to an object = obj[val3] = 'value3'
+        
+    }
+    for(let val of arr2){
+        frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1        
+    }
+    for(let key in frequencyCounter1){
+        if(!(key ** 2 in frequencyCounter2)){
+            return false 
+            // if the key is squared and not in the second object then return false
+        }
+        if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
+            return false
+            // if the key is there but the frequency is not the same return false
+        }
+    }
+    return true
+}
+
+Practice:
+
+Given two strings, write a function to determine if the second string is an anagram of the first. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinemam formed from iceman.
+
+Examples:
+validAnagram('', '') //true
+validAnagram('aaz', 'zza') //false
+validAnagram('anagram', 'nagaram') //true
+
+Clarifying questions:
+Will integers ever be a factor in this function?
+Will there ever be more than two strings?
+What if there are capitols in these strings?
+
+The steps that I would take are:
+First I want to separate each individual character so I can compare them. 
+- I can do that by looping through the string and either creating an object or an array.
+Then I want to keep track of each individual character.
+- I can do that by creating key value pairs in an object or track them by keeping a counter throughout the loop.
+Finally I want to make sure that each individual character is in the array or object and also make sure that the frequency is the same for each character.
+
+const validAnagram = (str1, str2) => {
+  let compareStr1 = {}
+  let compareStr2 = {}
+  for (let char of str1) {
+    compareStr1[char] = (compareStr1[char] || 0) + 1
+  }
+  for (let char of str2) {
+    compareStr2[char] = (compareStr2[char] || 0) + 1
+  }
+  for (const key in compareStr1) {
+    if (!(key in compareStr2)) {
+      return false
+    }
+    if (compareStr2[key] !== (compareStr1[key])) {
+      return false
+    }
+  }
+  return true;
+}

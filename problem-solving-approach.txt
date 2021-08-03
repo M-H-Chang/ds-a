@@ -1,0 +1,16 @@
+1. Understand the problem
+- Clarify 
+- Ask questions
+
+2. Concrete Examples
+- Understand inputs and outputs
+- Understand edgecases
+
+3. Break it down
+- Steps/gameplan to code out and refer back to
+- You can write pseudocode to do this or just write steps
+
+4. Solve/simplify
+- Either bruteforce or ignore parts of the question you can plug in later
+
+5. Look back and refactor
