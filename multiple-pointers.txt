@@ -48,21 +48,19 @@ function sumZero(arr) {
  Steps:
  1. Gather two pointers the first would be the first index = 0
 The second pointer would be array.length - 1
-2. Use a loop and since there are two pointers we will use a while loop.
+2. Use a loop and since there are two pointers.
 3. Compare the two pointers to see if they are unique.
 4. If they are unique we will have a counter to add to when unique values are found.
 
 countUniqueValues(arr) {
-  let left = 0
-  let right = 1
-  while(right < arr.lengthj) {
-    right++
-    if(arr[left] !== arr[right]) {
-      left++
-      arr[left] === arr[right]
+  let i = 0
+  for (let j = 1; j < arr.length; j++) {
+    if (arr[i] !== arr[j]) {
+      i++
+      arr[i] = arr[j]
     }
   }
-  return left += 1
+  return i += 1
 }
 
 
