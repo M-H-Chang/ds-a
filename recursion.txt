@@ -1,0 +1,13 @@
+A process (function) that calls itself.
+
+Why it's important:
+- It's everywhere
+
+Call stack: a data structure that tells us when each function should be called.
+- Any time a function is invoked it is pushed on the top of the call stack
+- When JS sees the return keyword or when the function ends, the compiler will remove it from the call stack
+
+Two Essential parts:
+- Base case: when the recursion stops
+- Different output: changing the output so you pass it through the function again
+
