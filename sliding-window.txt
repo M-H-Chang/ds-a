@@ -1,0 +1,42 @@
+Keeping track of a subset of data in an array/string.
+
+function maxSubarraySum(arr, num) {
+  if (num > arr.length) {
+    return null;
+  }
+  var max = -Infinity; // this is just in case there is an array that is all negatives
+  for (let i = 0; i < arr.length - num + 1; i++) {
+    temp = 0;
+    for (let j = 0; j < num; j++) {
+      temp += arr[i + j];
+    }
+    if (temp > max) {
+      max = temo;
+    }
+  }
+  return max;
+}
+
+Time Complexity: O(n^2)
+Space Complexity: O(n)
+
+function maxSubarraySum(arrm num) {
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) return null;
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i]
+    // adds up the first set of numbers
+  }
+  tempSum = maxSum;
+  for (let i = num; i < arr.length; i++) {
+    // starts the loop after the num index
+    tempSum = tempSum - arr[i - num] + arr[i];
+    // subtracts the number right before the second loop and adds the number at the end of the second loop
+    maxSum = Math.max(maxSum, tempSum); //Math.max just takes which ever one is greater
+  }
+  return maxSum;
+}
+
+Time Complexity: O(n)
+Space Complexity: O(n)
