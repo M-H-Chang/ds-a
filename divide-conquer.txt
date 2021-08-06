@@ -1,0 +1,3 @@
+Divides a smaller chunk of a data set and repeating the process with subset of data.
+It is very important for time complexity as it saves a lot of computing time.
+
