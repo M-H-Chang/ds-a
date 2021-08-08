@@ -11,3 +11,50 @@ Two Essential parts:
 - Base case: when the recursion stops
 - Different output: changing the output so you pass it through the function again
 
+Example:
+function sumRange(num) {
+  if(num === 1) return 1;   // base case 
+  return num + sumRange(num - 1);   //Different Output 
+}
+
+walk through:
+
+sumRange(3)
+    return 3 + sumRange(3 - 1) /
+                  return 2 + sumRange(2 - 1) 
+                                  return 1 // reaches basecase
+                  return 2 + 1 // sumRange(2) = 3
+    return 3 + 3 //sumRange(3) = 3    
+returns 6
+
+
+Factorial recursively:
+
+Factorial = 4! = 4*3*2*1
+
+function factorial(num) {
+  if (num === 1) return 1;
+  return num *= factorial(num - 1)
+}
+
+Helper method recursion design:
+function collectOddValues(arr) {
+  let result = [];
+
+  function helperMethod(diffArr) {
+    if(diffArr.length === 0) return;
+    if(diffArr[0] % 2 !== 0) {
+      result.push(diffArr[0])
+    }
+    helper(diffArr.slice(1))
+  }
+  helperMethod(arr)
+  return result;
+}
+
+Examples:
+function power(base, exp) {
+  if(exp === 0) return 1;
+  return base * power(base, exp - 1) 
+}
+                            
