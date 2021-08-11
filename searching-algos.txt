@@ -1,0 +1,24 @@
+Linear Search:
+Write a function called linearSearch which accepts an array and a value and returns the index at which the value exists. If the value does not exist in the array return -1
+function linearSearch(arr, num){
+  for(let i = 0; i < arr.length; i ++) {
+      if (arr[i] === num) {
+          return i
+      } 
+  }
+  return -1;
+}
+
+
+Binary Search:
+function binarySearch(arr, val) {
+  let left = 0;
+  let right = arr.length - 1;
+  let middle = Math.floor((left + right) / 2);
+  while (arr[middle] !== val && left <= right) {
+    if(val < arr[middle]) right = middle - 1;
+    else left = middle + 1 
+    middle = Math.floor((left + right) / 2);
+  }
+    return arr[middle] === val ? middle : -1
+}
