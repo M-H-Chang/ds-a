@@ -46,15 +46,29 @@ function collectOddValues(arr) {
     if(diffArr[0] % 2 !== 0) {
       result.push(diffArr[0])
     }
-    helper(diffArr.slice(1))
+    helperMethod(diffArr.slice(1))
   }
   helperMethod(arr)
   return result;
 }
 
-Examples:
+Practice:
 function power(base, exp) {
   if(exp === 0) return 1;
   return base * power(base, exp - 1) 
 }
-                            
+
+
+function productOfArray(arr) {
+  if(arr.length === 0)  return 1;
+  return arr[0] * productOfArray(arr.slice(1))
+}
+
+function recursiveRange(num) {
+  if(num === 1) return 1;
+  return num + recursiveRange(num - 1)
+}
+
+function fib(num) {
+  if(num)
+}
