@@ -70,5 +70,36 @@ function recursiveRange(num) {
 }
 
 function fib(num) {
-  if(num)
+  if(num <= 2) return 1;
+  return fib(num - 1) + fib(num - 2);
 }
+
+fib(4)
+fib(3) + 1 
+fib(3-1 = 2) + fib(3 - 2)
+1 + 1 2
+
+
+fib(6)
+fib(5)                      +                                         fib(4)
+fib(4)          +           fib(3)                                     fib(3) + 1
+fib(3) + 1                  1 + 1                                       1 + 1
+1+1
+         
+
+Harder Recursion Problems:
+
+function reverse(str) {
+  let result = [];
+  let splitStr = str.split('')
+  function helperReverse(diffStr) {
+    if(diffStr.length === 0) return;
+    result.push(diffStr[diffStr.length - 1])
+    helperReverse(diffStr.pop())
+  }
+  helperReverse(splitStr)
+  return result.join('')
+}
+
+ ** Attempted
+ 
