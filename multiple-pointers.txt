@@ -53,6 +53,9 @@ The second pointer would be array.length - 1
 4. If they are unique we will have a counter to add to when unique values are found.
 
 countUniqueValues(arr) {
+   if (arr.length === 0) {
+    return 0;
+    }
   let i = 0
   for (let j = 1; j < arr.length; j++) {
     if (arr[i] !== arr[j]) {
@@ -63,6 +66,58 @@ countUniqueValues(arr) {
   return i += 1
 }
 
+function areThereDuplicates(...args) {
+  // Two pointers
+  args.sort((a,b) => a > b);
+  let start = 0;
+  let next = 1;
+  while(next < args.length){
+    if(args[start] === args[next]){
+        return true
+    }
+    start++
+    next++
+  }
+  return false
+}
+
+function averagePair(arr, targ) {
+  let left = 0;
+  let right = arr.length - 1;
+  while(right > left) {
+    if((arr[left] + arr[right]) / 2 === targ) {
+      return true;
+    }
+    if((arr[left] + arr[right]) / 2 < targ) {
+      left++;
+    } 
+    if((arr[left] + arr[right]) / 2 > targ) {
+      right--;
+    } 
+  } 
+  return false;
+}
+
+function isSubsequence(str, subStr) {
+  let first = 0;
+  let second = 0;
+  if (subStr.length < str.length) {
+    return false;
+  }
+  while(second < subStr.length) {
+    if(str[first] === subStr[second]) {
+      first++
+      second++
+    }
+    if(str[first] !== subStr[second]) {
+      second++
+    }
+    if(first === str.length) {
+      return true
+    }
+  }
+  return false;
+}
 
 
 
