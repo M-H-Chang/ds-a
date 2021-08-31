@@ -21,3 +21,16 @@ function binarySearch(arr, val) {
   return -1;
     }
 }
+
+Naive String Approach:
+
+function stringSearch(longStr, str) {
+  let counter = 0;
+  for (let i = 0; i < longStr.length; i++) {
+    for (let j = 0; j < str.length; j++) {
+      if (str[j] !== longStr[i+j]) break;
+      if(j === str.length - 1) counter++;
+    }
+  }
+  return counter;
+}

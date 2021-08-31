@@ -20,7 +20,7 @@ function maxSubarraySum(arr, num) {
 Time Complexity: O(n^2)
 Space Complexity: O(n)
 
-function maxSubarraySum(arrm num) {
+function maxSubarraySum(arr, num) {
   let maxSum = 0;
   let tempSum = 0;
   if (arr.length < num) return null;
@@ -40,3 +40,26 @@ function maxSubarraySum(arrm num) {
 
 Time Complexity: O(n)
 Space Complexity: O(n)
+
+function minSubArrayLen(arr, targ) {
+  let tempSum = 0;
+  let minLength = 0;
+  
+
+  for(let i = 0; tempSum < targ; i++) {
+    tempSum += arr[i];
+    if(tempSum >= targ) return minLength += (i + 1);
+    else return 0;
+  }
+  
+  for(let i = minLength  - 1; i < arr.length; i++) {
+    let tempLength = 0;
+    arr[i] += tempSum
+    tempLength++
+    if(tempSum <= targ) {
+    minLength = Math.min(minLength, tempLength)
+    }
+    if(minLength)
+  }
+  return minLength
+}
