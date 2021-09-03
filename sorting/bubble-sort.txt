@@ -1,0 +1,53 @@
+The Idea: if we are sorting an array from smallest to greatest ascending. The largest would bubble to the top. 
+Compare the first index to the following and if it is larger we swap. 
+
+Swap Example:
+
+function swap(arr, indx1, indx2) {
+  var temp = arr[indx1];
+  arr[indx1] = arr[idx2];
+  arr[indx2] = temp;
+}
+||
+const swap = (arr, indx1, indx2) => {
+  //swaps the indx1 with indx2 and indx2 with indx1
+  [arr[indx1], arr[indx2]] = [arr[indx2], arr[indx1]] 
+}
+
+Bubble Sort Example:
+function bubbleSort(arr) {
+  // create a separate function for the swap
+  const swap = (arr, indx1, indx2) => {
+  [arr[indx1], arr[indx2]] = [arr[indx2], arr[indx1]] 
+}
+
+  for(let i = arr.length - 1; i > 0; i--) {
+    for(let j = 0; j < i - 1; j++) {
+      if(arr[j] > arr[j+1]) swap(arr, j, j+1)
+    }
+  }
+  return arr;
+}
+
+Optimization:
+After it is sorted without the optimization the code will keep checking. So we can set a bool variable to optimize.
+function bubbleSort(arr) {
+  // create noswap variable
+  let noSwaps;
+  const swap = (arr, indx1, indx2) => {
+  [arr[indx1], arr[indx2]] = [arr[indx2], arr[indx1]] 
+}
+
+  for(let i = arr.length - 1; i > 0; i--) {
+    //Set no swaps to true
+    noSwaps = true;
+    for(let j = 0; j < i - 1; j++) {
+      if(arr[j] > arr[j+1]) swap(arr, j, j+1)
+      // set noswap to false after it swaps out an index
+      noSwaps = false;
+    }
+    // if it never hits the branching statement above it will break since noswap is still true
+    if(noSwaps) break;
+  }
+  return arr;
+}
