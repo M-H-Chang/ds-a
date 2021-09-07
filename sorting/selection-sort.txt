@@ -1,0 +1,26 @@
+General Idea: similar to bubble sort, it selects an index that is smallest and places them in a sorted position
+Checking each value in the array to see if it's the minimu
+
+// we can use the same swap function from bubble sort
+const swap = (arr, indx1, indx2) => {
+  //swaps the indx1 with indx2 and indx2 with indx1
+  [arr[indx1], arr[indx2]] = [arr[indx2], arr[indx1]] 
+}
+
+function selectionSort(arr) {
+  const swap = (arr, indx1, indx2) => {
+  [arr[indx1], arr[indx2]] = [arr[indx2], arr[indx1]] 
+}
+  for(let i = 0; i < arr.length; i++) {
+    // set a variable to the minimum value in the array
+    let min = i;
+    for(let j = i + 1; j < arr.length; j++) {
+      // in this second loop we compare the rest of the array to see if there is a new minimum. If there is then we set the minimum variable to the lowest as we go through the loop
+      if(arr[j] < arr[min]) min = j;
+    }
+    // if the current i is not the lowest then we swap it
+    if(i !== lowest) swap(arr, i , lowest)
+    swap(arr, i, j)
+  }
+  return arr;
+}
