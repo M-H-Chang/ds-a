@@ -1,0 +1,11 @@
+For sorting it is very important in programming.
+
+The following algorithms are quite similar when compared in the grand scheme of things.
+- Insertion sort, selection sort, and bubble sort are all quite simple and have a quadratic(On^2) time complexity;
+although insertion and bubble sort are linear time complexities when the data is almost sorted. Selection is always slow.
+- These three algorithms are actually better when there is a small data set.
+
+
+
+
+

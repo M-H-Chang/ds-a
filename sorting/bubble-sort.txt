@@ -38,7 +38,7 @@ function bubbleSort(arr) {
   [arr[indx1], arr[indx2]] = [arr[indx2], arr[indx1]] 
 }
 
-  for(let i = arr.length - 1; i > 0; i--) {
+  for(let i = arr.length; i > 0; i--) {
     //Set no swaps to true
     noSwaps = true;
     for(let j = 0; j < i - 1; j++) {

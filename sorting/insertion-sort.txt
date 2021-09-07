@@ -1,0 +1,19 @@
+General Idea: builds up the sort by gradually creating a larger portion which is always sorted
+insert each element one at a time into the sorted portion/half of the array
+Taking an element and inserting it one at a time in the correct order
+
+Example:
+function insertionSort(arr) {
+  // start at the second element in the array to compare to the first
+  for(let i = 1; i < arr.length; i++){
+    let currentVal = arr[i];
+    // loop through each element backwards comparing each element
+    for(let j = i - 1; j >= 0 && arr[j] > currentVal; j--){
+      // correctly place it at the right sorted index
+      arr[j+1] = arr[j]
+    }
+    // set the currentVal to where it is sorted last
+    arr[j+1] = currentVal;
+  }
+  return arr;
+}
