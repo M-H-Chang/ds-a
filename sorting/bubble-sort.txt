@@ -21,7 +21,7 @@ function bubbleSort(arr) {
   [arr[indx1], arr[indx2]] = [arr[indx2], arr[indx1]] 
 }
 
-  for(let i = arr.length - 1; i > 0; i--) {
+  for(let i = arr.length; i > 0; i--) {
     for(let j = 0; j < i - 1; j++) {
       if(arr[j] > arr[j+1]) swap(arr, j, j+1)
     }
@@ -51,3 +51,7 @@ function bubbleSort(arr) {
   }
   return arr;
 }
+
+Big O comp:
+n^2 in general
+if it is almost sorted then it is O(n) (linear)
