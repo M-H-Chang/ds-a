@@ -1,0 +1,56 @@
+General Idea: Code starts by dividing it in half until it becomes a one element array and then merge them in a sorted fashion
+
+Merging function example:
+function merge(arr1, arr2){
+  let results = [];
+  let i = 0;
+  let j = 0;
+  while(i < arr1.length && j < arr2.length){
+    //branching statement compares each value and then pushes based on the smaller
+    //then compare the same greater value to the next value in the other array
+    if(arr2[j] > arr1[i]) {
+      results.push(arr1[i], arr2[j]);
+      i++;
+    } else {
+      results.push(arr2[j])
+      j++;
+    }
+  }
+  // the following two while loops just add the rest of the arrays for each array at the end in the case that theres any left over elements
+  while(i < arr1.length) {
+    results.push(arr1[i]);
+    i++;
+  }
+  while(j < arr2.length) {
+    results.push(arr2[j]);
+    j++;
+  }
+  return results;
+}
+
+function mergeSort(arr){
+  //basecase
+  if(arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  //calls it recursively
+  let left = mergeSort(arr.slice(0, mid));
+  // you dont have to define the end point with slice
+  let right = mergeSort(arr.slice(mid));
+  // call the merge function to sort each function
+  return merge(left, right)
+}
+// summary: 
+  1. find the mid point for the array 
+  2. keep recursively finding the midpoint until the it hits the base case which is every array is less than or equal to 1
+    - keep in mind that line 37 for right array is waiting for line 36 for left array to return something
+      - line 37 only executes once merge is called onto left which means left is sorted
+    - then line 37 executes until it returns sorted which means right is sorted
+  3. finally once the left and right are sorted, merge is called on the two sorted arrays and returns the sorted array
+
+
+  Big O:
+  // log n represents the decomposition of the arrays(splitting the arrays)
+  // n represents the linear amount of times we compare the values to sort them
+  Time Comp: O(n log n)
+  // mergesort takes a lot more space compared to the easy sorting algos so it is a tradeoff for time
+  Space Comp: O(n)
