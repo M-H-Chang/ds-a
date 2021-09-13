@@ -1,0 +1,11 @@
+General Idea: This does not compare numbers and it usually is a list of numbers.
+Never makes comparison of two elements
+
+**simple concept so you do need to be familiar with it. Can't hurt to know it.
+
+Radix Sort Helper methods:
+
+function getDigit(num, i){
+  return Math.floor(Math.abs(num) / Math.pow(10, 1)) % 10;
+}
+
