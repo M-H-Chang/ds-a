@@ -9,7 +9,7 @@ function merge(arr1, arr2){
     //branching statement compares each value and then pushes based on the smaller
     //then compare the same greater value to the next value in the other array
     if(arr2[j] > arr1[i]) {
-      results.push(arr1[i], arr2[j]);
+      results.push(arr1[i]);
       i++;
     } else {
       results.push(arr2[j])
