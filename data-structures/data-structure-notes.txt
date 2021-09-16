@@ -1,0 +1,10 @@
+Data structures are collections of values and contains the relationship (eg. order) and the functionlity and operations related to the data structure (interacting, adding, removing, sorting, reversing etc)
+
+Why care?:
+The more time you spend the more likely you'll need to develop one of these data structures
+
+Classes in ES2015 review:
+Class: blueprint(pattern) to implement individual objects
+Instance method: methods that are not on class levels but on specific instances
+Static methods: 
+
