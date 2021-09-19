@@ -11,7 +11,7 @@ function maxSubarraySum(arr, num) {
       temp += arr[i + j];
     }
     if (temp > max) {
-      max = temo;
+      max = temp;
     }
   }
   return max;
