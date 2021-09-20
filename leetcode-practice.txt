@@ -23,3 +23,31 @@ var romanToInt = function(s){
     return result;
 }
 
+27.
+// since space comp is O(1) we can't create another array
+// we can just keep track of how many of the vals are in the array
+// then subtract it from the length of the array
+
+var removeElement = function(nums, val) {
+  let tracker = 0;
+  const length = nums.length;
+  for(let i = 0; i < length; i++){
+    if(nums[i] === val) {
+      tracker++
+      nums.splice(i, 1)
+      i--
+    }
+  }    
+  let result = length - tracker;
+  return result;
+};
+var removeElement = function(nums, val) {
+  let tracker = 0;
+  for(let i = 0; i < nums.length; i++){
+    if(nums[i] === val) {
+      nums.splice(i, 1)
+      i--
+    }
+  }    
+  return nums.length;
+};
