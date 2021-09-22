@@ -51,3 +51,26 @@ var removeElement = function(nums, val) {
   }    
   return nums.length;
 };
+
+21.
+
+var mergeTwoLists = function(l1, l2) {
+    let newNode = new ListNode();
+    this.head = newNode;
+    while(l1 != null && l2 != null){
+        if(l1.val < l2.val){
+            newNode.next = l1; 
+            l1 = l1.next; 
+        } else {
+            newNode.next = l2;
+            l2 = l2.next;
+        }
+        newNode = newNode.next; //this will move the pointer in our new list forward so we dont overwrite
+    }
+    if(l1 != null){
+        newNode.next = l1; // puts the remainder of l1 nodes inside
+    } else {
+        newNode.next = l2; // puts the remainder of l2 nodes inside
+    }
+    return head.next; // .next represents all the upcoming nodes so it returns the entire new list 
+};
