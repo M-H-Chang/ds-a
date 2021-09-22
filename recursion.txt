@@ -40,7 +40,7 @@ function factorial(num) {
 Helper method recursion design:
 function collectOddValues(arr) {
   let result = [];
-
+  ------------ begin of helper ------------
   function helperMethod(diffArr) {
     if(diffArr.length === 0) return;
     if(diffArr[0] % 2 !== 0) {
@@ -48,6 +48,7 @@ function collectOddValues(arr) {
     }
     helperMethod(diffArr.slice(1))
   }
+  ------------ end of helper ------------
   helperMethod(arr)
   return result;
 }
