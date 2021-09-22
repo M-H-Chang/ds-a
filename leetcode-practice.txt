@@ -74,3 +74,24 @@ var mergeTwoLists = function(l1, l2) {
     }
     return head.next; // .next represents all the upcoming nodes so it returns the entire new list 
 };
+
+35.
+
+var searchInsert = function(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    let mid = Math.floor((left + right) / 2);
+    while(nums[mid] !== target && left <= right){
+        if(target < nums[mid]){
+            right = mid - 1;
+        } else {
+            left = mid + 1;
+        }
+        mid = Math.floor((left + right) / 2);
+    }
+    if(nums[mid] === target) {
+        return mid;
+    } else {
+        return mid+1; //because it will keep searching with the while loop but if it does not find one it is floored so you just add one
+    }
+};
