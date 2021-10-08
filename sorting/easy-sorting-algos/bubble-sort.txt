@@ -55,3 +55,6 @@ function bubbleSort(arr) {
 Big O comp:
 n^2 in general
 if it is almost sorted then it is O(n) (linear)
+
+
+

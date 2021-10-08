@@ -72,5 +72,33 @@ class SinglyLinkedList{
     this.length++
     return this;
   }
+  //retrieving a node by its position in a linked list
+  get(index){
+    if(index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head; //current is the first node 
+    while(counter !== index){
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
+  //chaning the value of the node in a singly linked list
+  set(index, val){
+    let changeVal = this.get(index)
+    if(changeVal){ //if it is a found node
+      changeVal.val = val;
+      return true;
+    } else {
+      return false;
+    }
+  }
+  //inserting a new node in the position specified
+  insert(index, val){
+    if(index > 0 || index > this.length) return false;
+    else if(index === 0) unshift(val)
+    else if(index === this.length) push(val)
+    else 
+  }
 }
 

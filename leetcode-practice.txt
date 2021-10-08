@@ -95,3 +95,193 @@ var searchInsert = function(nums, target) {
         return mid+1; //because it will keep searching with the while loop but if it does not find one it is floored so you just add one
     }
 };
+
+53.
+
+var maxSubArray = function(nums) {
+    let result = nums[0];
+    for(let i = 1; i < nums.length; i++){
+        nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]); //looks at the maximum of everything that has accumulated so far until adding it up and then the next number is greater than everything added up. 
+        * so it adds up everything until the next number in the array is greater than the numbers that have accumulated so far.
+        result = Math.max(result, nums[i]);
+    }
+    return result
+};
+
+121. 
+
+var findProfit = function(prices){
+  let min = Number.MAX_SAFE_INTEGER, max = 0;
+  for(let i = 0; i < prices.length; i++){
+    min = Math.min(min, prices[i]); //getting the new index
+    max = Math.max(max, prices[i] - min); //getting the new max findProfit
+  }
+  return max;
+}
+
+Bit Counting: return the amount of ones in the binary number representation of a number input
+
+    var countBits = function(n) {
+    let tempNumber = n; 
+    let binaryNumber = (tempNumber % 2).toString(); //this is what you will be returning
+    while(tempNumber > 1){
+      tempNumber = parseInt(tempNumber/2); //divides it by two until the loop is done
+      binaryNumber = (tempNumber % 2) + (binaryNumber); //gets the binary number and then adds to the current binary number
+    }
+    //end of turning a number to a binary representation
+    let counter = 0
+    for(let i = 0; i < binaryNumber.length; i++){
+      if(binaryNumber[i] === '1'){
+        counter++
+      } else {
+        continue;
+      }
+    }
+    return counter;
+    //end of function to return all the ones in the binary representation
+  };
+
+  Decode morse code
+  code walk through:
+  return the same manipulated string decoded
+  1. first split the morse code with three spaces since each word in morse code is represented with three spaces
+  2. then use the map to manipulate each split element to split the word into each individual char since each char in morse code is separated by a space
+  3. then use map again to make each character in the morse code match the key value in the MORSE_CODE dictionary
+  4. when they are translated to the alphabet join them together to create a word 
+  5. then join them together again in the case that there are multiple words
+  6. use trim method to make sure that spaces before or after the morse code does not affect the output
+
+  decodeMorse = function(morseCode){
+  return morseCode.split('   ').map(word => word.split(' ')
+    .map(char => MORSE_CODE[char]).join(''))
+    .join(' ').trim() 
+}
+
+isIsogram when you enter a string make sure that it does not have the same letter twice
+walk through:
+1. make sure that you take care of the edgecase and make the entire string either upper or lower
+2. create a dictionary for each individual char
+3. make a loop to add all the characters into the dict 
+4. create a variable that holds all the values inside of the dict
+5. loop through the newly created array with all the values and see if there is any value that is greater than one
+
+function isIsogram(str){
+  const newString = str.toLowerCase();
+  let dict = {}
+  if(newString.length === 0) return true;
+  for(let char of newString){
+    dict[char] = (dict[char] || 0) + 1
+  }
+
+  let valueArray = Object.values(dict)
+  for(let i = 0; i < valueArray.length; i++){
+    if(valueArray[i] <= 1) {
+      continue;
+    } else {
+      return false
+    }
+  }
+  return true;
+}
+find the number that repeats an odd number of times
+steps:
+1. first we create an empty object
+2. loop through the input array to add each unique element into the dictionary
+3. loop through the object for any value that when divided by two the remainder is one
+4. make sure that the key is parseinted because keys in an object are strings
+
+function findOdd(A) {
+  let dict = {}
+  for(let num of A){
+    dict[num] = (dict[num] || 0) + 1
+  }
+  for(const [key, value] of Object.entries(dict)) {
+    if(value % 2 === 1) return parseInt(key);
+    else continue;
+  }
+} 
+
+Given an array of numbers with either all but one even or odd find the outlier in the array
+
+function findOutlier(integers){
+  // array with intergers of atleast 3 
+  // all integers odd or even 
+  // goal is to find one integer that is not odd or even
+  // loop through the input array
+  // one loop that will find out if its entirely even or odd *
+  // second loop will find that unique integer
+  // return the one integer that is not common
+  
+  let odd = 0;
+  let even = 0;
+  // loop below is specifically to find out the commonality of the array
+  for (let i = 0; i < 3; i++){
+    if(integers[i] % 2 === 0) even++;
+    if(integers[i] % 2 !== 0) odd++;
+  }
+  
+  for(let i = 0; i < integers.length; i++) {
+    if(odd > 1) {
+      if(integers[i] % 2 === 0) return integers[i];
+    } else if (even > 1) {
+      if(integers[i] % 2 !== 0) return integers[i];
+    } else {
+      return undefined;
+    }
+  }
+
+  Find out if the input number is a prime number; A prime number is any number divisible by itself and one
+  function isPrime(num) {
+  if(num <= 1) return false; //we already know 1 is not a prime number
+  if(num === 2) return true; //we already know 2 is a prime number
+  const sqrRoot = Math.sqrt(num) //this is to speed up the algorithm so that it does not have to loop for the amount of times num
+  for(let i = 2; i <= sqrRoot; i++){
+    if(num % i === 0) return false; //if the number has a remainder of 0 for each time of the loop that is not the number itself or 1 it will return false
+  }
+  return num > 1;
+}
+
+Count the duplicates:
+
+function duplicateCount(text){
+  let output = 0;
+  let obj = {};
+  const newText = text.toLowerCase();
+  for(let char of newText){
+    obj[char] = (obj[char] || 0) + 1
+  }
+  const keys = Object.values(obj)
+  for(let i = 0; i < keys.length; i++){
+    if(keys[i] > 1){
+      output++;
+    }
+  }
+  return output;
+}
+
+reverse words that have lenghts longer than 5
+function spinWords(string){
+  let output = [];
+  let newString = string.split(' '); //individual words
+  for(let i = 0; i < newString.length; i++){
+    if(newString[i].length < 5) output.push(newString[i])
+    if(newString[i].length >= 5){
+      let reverse = [];
+      for(let j = newString[i].length; j >= 0; j--){
+        let tempString = newString[i].split('');
+        reverse.push(tempString[j]);
+      }
+      output.push(reverse.join(''));
+    }
+  }
+  return output.join(' ')
+}
+
+every word is divided by 'WUB' return a string without WUB
+keep in mind that this solution works because each word is separated by WUB or else js will not know that it is a word
+function songDecoder(song){
+  let arr1 = song.split('WUB') //this replaces all the WUB into empty strings
+  let arr2 = arr1.filter(Boolean) //filters out all the empty strings
+  let string = arr2.join(' ') //join each of them with a space
+  return string;
+}

@@ -97,6 +97,7 @@ const validAnagram = (str1, str2) => {
 }
 
 
+
 Write a function called sameFreq given two positive integers, find out if the twp numbers have the same frquency of digits.
 
 function sameFreq(num1, num2) {
