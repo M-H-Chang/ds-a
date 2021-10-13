@@ -279,6 +279,7 @@ function spinWords(string){
 
 every word is divided by 'WUB' return a string without WUB
 keep in mind that this solution works because each word is separated by WUB or else js will not know that it is a word
+
 function songDecoder(song){
   let arr1 = song.split('WUB') //this replaces all the WUB into empty strings
   let arr2 = arr1.filter(Boolean) //filters out all the empty strings
